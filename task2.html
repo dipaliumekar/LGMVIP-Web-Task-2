@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Calculator</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+  .header{
+    height: 10%;
+    width: 100vw;
+    background-color: #214155;
+background-image: linear-gradient(160deg, #214155 0%, #e2edec 100%);
+
+  }
+
+  .header p{
+    margin: auto;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  .container{
+    font-family: Arial, sans-serif;
+    height: 90vh;
+    width: 100vw;
+    background-color: #D9AFD9;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #d6eef1 100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .calculator {
+    width: 450px;
+    /* margin: 0 auto; */
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 10px black;
+    text-align: center;
+  }
+  input {
+    width: 93%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 3px;
+  }
+  button {
+    width: 48%;
+    padding: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    border: solid black 1px;
+    border-radius: 5px;
+    margin: 2px;
+    cursor: pointer;
+  }
+  #equals {
+    background-color: #f39c12;
+    color: white;
+  }
+  #clear {
+    background-color: #454343;
+    color: white;
+  }
+ 
+  footer{
+        width: 100vw;
+        height: 10%;
+        background-color: #214155;
+background-image: linear-gradient(160deg, #214155 0%, #e2edec 100%);
+
+  }
+
+  footer h2{
+    text-align: center;
+  }
+  
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="header">
+            <p>Calculator</p>
+        </div>
+        
+    </header>
+
+    <div class="container">
+        <div class="calculator">
+            <input type="text" id="display" readonly>
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button onclick="appendValue('0')">0</button>
+            <button onclick="appendValue('+')">+</button>
+            <button onclick="appendValue('-')">-</button>
+            <button onclick="appendValue('')"></button>
+            <button onclick="calculate()">=</button>
+            <button id="clear" onclick="clearDisplay()">C</button>
+            <button onclick="appendValue('/')">/</button>
+          </div>
+    </div>
+<footer>
+    <h2>Created by - Dipali Umekar</h2>
+</footer>
+<script>
+  function appendValue(value) {
+    document.getElementById('display').value += value;
+  }
+  
+  function clearDisplay() {
+    document.getElementById('display').value = '';
+  }
+  
+  function calculate() {
+    const display = document.getElementById('display');
+    try {
+      display.value = eval(display.value);
+    } catch (error) {
+      display.value = 'Error';
+    }
+  }
+</script>
+</body>
+</html>
